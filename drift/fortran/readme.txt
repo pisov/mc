@@ -8,4 +8,10 @@ make
 
 2. Execute:
 
-./drift.x
+./drift.x > trajectory.dat
+
+(ielectrons = 1000)
+
+3. Plot the trajectories
+
+gnuplot plot.gnu
