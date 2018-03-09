@@ -109,4 +109,4 @@ program drift
   vdrift = vdrift / norm
   write(0,'(A,F20.10,A)')'vdrift = ',vdrift, ' [m/s]'
   write(0,'(A,F20.10,A)')'Ekin   = ',0.5*xmasse*vdrift**2*6.2415097d+18, ' [eV]'
-end
+end program drift

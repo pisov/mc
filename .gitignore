@@ -3,4 +3,6 @@ solution/
 *.o
 *.x
 plot.dat
+trajectory.dat
 *.mod
+*.pyc
