@@ -41,6 +41,7 @@ program drift
   do i = 1, ielectrons
     if (mod(i, it_out) == 0) then
       write(*,'(A12,I15,A1)')'#"Trajectory', itx,'"'
+      write(0,'(A12,I15,A1)')'#"Trajectory', itx,'"'
       itx = itx + 1
     end if
     x = 0.
@@ -50,13 +51,14 @@ program drift
     vx = 0.
     vy = 0.
     vz = 0.
-
-!   Caclulate the time period to the next collision
-50    call random_number(p)
     ! Write out trajectory
     if (mod(i, it_out) == 0) then
       write(*,'(4F20.10)')ttotal, x, y, z
     end if
+
+
+!   Caclulate the time period to the next collision
+50    call random_number(p)
     dt = - (1. / colf) * log(1. - p)
 
 !   Make one integration step further
@@ -66,6 +68,13 @@ program drift
     vx = vx + acx * dt
     vy = vy + acy * dt
     vz = vz + acz * dt
+
+! Write out trajectory
+    if (mod(i, it_out) == 0) then
+      write(*,'(4F20.10)')ttotal, x, y, z
+    end if
+
+
 !   Accumulate total drift time
     ttotal = ttotal + dt
 
